@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  /* Exact Palette from Data Analyst Portfolio Spec */
+  --color-mustard: #E0C340;
+  --color-coral: #FF9B7A;
+  --color-violet: #A67DBA;
+  --color-sage: #A3C9A8;
+  --color-chocolate: #6B4A3D;
+  --color-peach: #FFCCB6;
+  --color-teal: #5EB9B3;
+  --color-cream: #FAF0E6;
+  --color-mushroom: #D4C3B5;
+  --color-charcoal: #3E2A24;
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-space-grotesk);
+}
+
+@layer base {
+  :root {
+    --background: var(--color-cream);
+    --foreground: var(--color-charcoal);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), sans-serif;
+    overscroll-behavior-y: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), sans-serif;
+  }
+}
+
+/* Custom Cursor Styles */
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-coral);
+}
+
+.cursor-outline {
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--color-coral);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+@media (pointer: fine) {
+  body, a, button {
+    cursor: none;
+  }
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Perspective 3D container */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* GSAP utilities */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Global dot grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, var(--color-charcoal) 1px, transparent 0);
+  background-size: 36px 36px;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Text outline utility */
+.text-outline {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: currentColor;
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
