@@ -4,8 +4,12 @@ import { useRef, useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { portfolioData } from "@/data";
-import ImageReveal from "@/components/ui/ImageReveal";
 import CertificateMarquee from "@/components/ui/CertificateMarquee";
+import EducationSection from "@/components/sections/EducationSection";
+import DataMindsetSection from "@/components/sections/DataMindsetSection";
+import DataCompetenciesSection from "@/components/sections/DataCompetenciesSection";
+import SkillsSection from "@/components/sections/SkillsSection";
+import ImageReveal from "@/components/ui/ImageReveal";
 import TiltCard from "@/components/ui/TiltCard";
 import FooterContact from "@/components/layout/FooterContact";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -208,25 +212,16 @@ export default function AboutPage() {
 
           </section>
 
-          {/* Certificate Marquee Banner */}
-          <CertificateMarquee />
+          <div className="w-full">
+            <CertificateMarquee />
+          </div>
 
-          {/* Skills */}
-          <section className="max-w-[90rem] mx-auto px-6 md:px-12 mb-24 md:mb-36 border-t border-[var(--color-charcoal)]/10 pt-16 md:pt-24 relative z-20 bg-[var(--color-cream)]">
-            <h2 className="text-3xl md:text-5xl font-heading font-bold uppercase tracking-tighter mb-10">
-              Skills & <span className="text-[var(--color-coral)]">Tools</span>
-            </h2>
-            <div className="skills-grid flex flex-wrap gap-3 md:gap-4">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="skill-tag px-5 py-2.5 rounded-full text-sm md:text-base font-medium border border-[var(--color-charcoal)]/15 bg-[var(--color-mushroom)]/40 hover:bg-[var(--color-coral)] hover:text-[var(--color-cream)] hover:border-transparent transition-all duration-300"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </section>
+          <EducationSection />
+          
+          <DataMindsetSection />
+          <DataCompetenciesSection />
+
+          <SkillsSection />
 
           {/* Organizations */}
           <section className="max-w-[90rem] mx-auto px-6 md:px-12 mb-24 relative z-20 bg-[var(--color-cream)]">
