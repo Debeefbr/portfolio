@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import DraggableHeroText from "@/components/ui/DraggableHeroText";
-import HeroMottoTransition from "@/components/ui/HeroMottoTransition";
+import SequentialTextCard from "@/components/ui/SequentialTextCard";
 import MagneticLink from "@/components/ui/MagneticLink";
 import { TransitionLink } from "@/components/ui/TransitionLink";
 import BubbleCluster from "@/components/ui/BubbleCluster";
@@ -56,27 +56,8 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* 3D Flip Card — Hero → Motto */}
-      <HeroMottoTransition
-        frontContent={
-          <div className="text-center px-8">
-            <p className="text-xs uppercase tracking-[0.3em] opacity-50 mb-4">Portfolio</p>
-            <h2 className="text-4xl md:text-7xl lg:text-8xl font-heading font-black tracking-tighter leading-[0.85] uppercase">
-              Deby<br />Febrianty
-            </h2>
-          </div>
-        }
-        backContent={
-          <div className="text-center px-8 md:px-16 max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.3em] mb-6 opacity-60">My approach</p>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-snug">
-              {["I", "turn", "complex", "data", "into", "clear", "decisions."].map((word) => (
-                <span key={word} className="motto-word inline-block mr-[0.22em]">{word}</span>
-              ))}
-            </h2>
-          </div>
-        }
-      />
+      {/* 3D Flip Card -> Sequential Text Card */}
+      <SequentialTextCard />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { portfolioData } from "@/data";
 import TiltCard from "@/components/ui/TiltCard";
+import FooterContact from "@/components/layout/FooterContact";
 
 const expColors = ["var(--color-mustard)", "var(--color-sage)", "var(--color-violet)", "var(--color-teal)", "var(--color-coral)"];
 const certColors = ["var(--color-peach)", "var(--color-mushroom)", "var(--color-sage)", "var(--color-mustard)"];
@@ -39,8 +40,9 @@ export default function WorkPage() {
   }, { scope: container });
 
   return (
-    <main ref={container} className="w-full pt-32 pb-24 px-6 md:px-12 relative z-10">
-      {/* Header */}
+    <div ref={container} className="w-full min-h-screen flex flex-col relative z-10">
+      <main className="flex-1 pt-32 pb-24 px-6 md:px-12">
+        {/* Header */}
       <section className="max-w-7xl mx-auto mb-16 md:mb-24">
         <span className="text-xs font-bold tracking-[0.3em] uppercase text-[var(--color-coral)] block mb-4">
           Portfolio
@@ -111,6 +113,8 @@ export default function WorkPage() {
           ))}
         </div>
       </section>
-    </main>
+      </main>
+      <FooterContact />
+    </div>
   );
 }

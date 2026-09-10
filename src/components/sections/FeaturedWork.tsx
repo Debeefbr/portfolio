@@ -120,13 +120,6 @@ export default function FeaturedWork() {
             ))}
           </div>
         </div>
-
-        {/* View all link */}
-        <div className="absolute bottom-6 left-0 w-full text-center z-40 hidden md:block">
-          <TransitionLink href="/work" className="inline-flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] border-b-2 border-[#3E2A24] pb-1 hover:border-[#FF9B7A] hover:text-[#FF9B7A] transition-colors text-[#3E2A24]">
-            View all work <span className="text-[14px]">→</span>
-          </TransitionLink>
-        </div>
       </div>
     </section>
   );

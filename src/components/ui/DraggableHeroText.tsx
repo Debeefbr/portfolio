@@ -82,7 +82,7 @@ export default function DraggableHeroText({ text, className = "" }: Props) {
           key={i}
           ref={(el) => { wordsRef.current[i] = el; }}
           data-cursor="DRAG"
-          className="inline-block cursor-grab active:cursor-grabbing touch-none font-heading font-black uppercase leading-[0.9] tracking-tighter will-change-transform"
+          className="inline-block cursor-grab active:cursor-grabbing touch-none font-heading font-black uppercase leading-[0.9] tracking-tighter will-change-transform pointer-events-auto"
         >
           {word}
         </span>
