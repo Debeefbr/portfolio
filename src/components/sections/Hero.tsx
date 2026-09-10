@@ -6,6 +6,7 @@ import DraggableHeroText from "@/components/ui/DraggableHeroText";
 import HeroMottoTransition from "@/components/ui/HeroMottoTransition";
 import MagneticLink from "@/components/ui/MagneticLink";
 import { TransitionLink } from "@/components/ui/TransitionLink";
+import BubbleCluster from "@/components/ui/BubbleCluster";
 
 export default function Hero() {
   const heroTop = useRef<HTMLDivElement>(null);
@@ -22,11 +23,14 @@ export default function Hero() {
   return (
     <>
       <section ref={heroTop} className="min-h-screen w-full flex flex-col items-center justify-center relative z-10 px-6 pt-20">
+        {/* Floating logo bubbles */}
+        <BubbleCluster />
+
         {/* Subtitle top */}
-        <span className="hero-subtitle-top text-xs font-bold tracking-[0.3em] uppercase text-[var(--color-coral)] mb-4">Data Analyst Portfolio</span>
+        <span className="hero-subtitle-top text-xs font-bold tracking-[0.3em] uppercase text-[var(--color-coral)] mb-4 pointer-events-none">Data Analyst Portfolio</span>
 
         {/* Hero name with solid + outline */}
-        <div className="relative z-10 w-full text-center">
+        <div className="relative z-10 w-full text-center pointer-events-none">
           <DraggableHeroText
             text="DEBY"
             className="text-[5rem] md:text-[10rem] lg:text-[14rem] text-[var(--color-charcoal)]"
@@ -38,12 +42,12 @@ export default function Hero() {
         </div>
 
         {/* Subtitle bottom */}
-        <p className="hero-subtitle-bottom mt-6 text-lg md:text-xl font-light italic text-[var(--color-charcoal)] opacity-70 max-w-xl text-center">
+        <p className="hero-subtitle-bottom mt-6 text-lg md:text-xl font-light italic text-[var(--color-charcoal)] opacity-70 max-w-xl text-center pointer-events-none">
           I turn complex data into clear decisions.
         </p>
 
         {/* CTA Button */}
-        <div className="hero-cta mt-8" data-cursor="OPEN">
+        <div className="hero-cta mt-8 pointer-events-auto" data-cursor="OPEN">
           <TransitionLink href="/about">
             <MagneticLink>
               <span className="inline-flex items-center gap-3 rounded-full bg-[var(--color-charcoal)] px-6 py-3 text-xs uppercase tracking-[0.18em] text-[var(--color-cream)] shadow-lg transition-colors hover:bg-[var(--color-coral)] hover:text-[var(--color-charcoal)]">Meet the analyst <span>↗</span></span>
